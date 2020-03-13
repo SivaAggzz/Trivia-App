@@ -3,25 +3,21 @@ package com.techneapps.triviaapp.view.quiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.techneapps.triviaapp.database.QuizHistoryDatabase;
-import com.techneapps.triviaapp.database.models.QuizHistory;
 import com.techneapps.triviaapp.utils.QuizHistoryViewModelFactory;
 import com.techneapps.triviaapp.view.adapter.QuizHistoryAdapter;
 import com.techneapps.triviaapp.viewmodel.QuizHistoryViewModel;
 import com.techneapps.triviaapp.R;
 import com.techneapps.triviaapp.databinding.ActivityQuizHistoryBinding;
 
-import java.util.List;
+import java.util.Objects;
 
 public class QuizHistoryActivity extends AppCompatActivity {
 
@@ -56,12 +52,12 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void initiateViews() {
         //set toolbar's back icon and custom title
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Quiz History");
     }
 
     private void initiateViewModel() {
-        quizHistoryViewModel = ViewModelProviders.of(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
+        quizHistoryViewModel = new ViewModelProvider(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
                 .get(QuizHistoryViewModel.class);
     }
 

@@ -1,5 +1,4 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -35,7 +34,7 @@
                 android:layout_marginBottom="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Here are the answers selected:"
+                android:text="@string/here_are_the_answers_selected"
                 android:textColor="@color/md_white_1000"
                 android:textSize="18sp" />
             <TextView
@@ -107,7 +106,7 @@
                 android:background="@drawable/button_finish_rect_background_state"
                 android:enabled="true"
                 android:onClick="restartGame"
-                android:text="Finish" />
+                android:text="@string/finish" />
 
             <Button
                 android:textAllCaps="false"
@@ -116,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_history_rect_background_state"
                 android:onClick="showHistory"
-                android:text="History" />
+                android:text="@string/history" />
         </LinearLayout>
 
     </RelativeLayout>

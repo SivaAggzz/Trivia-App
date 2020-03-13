@@ -8,13 +8,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.techneapps.triviaapp.R;
 import com.techneapps.triviaapp.databinding.ActivityFirstQuizQuestionBinding;
 
 import java.util.Objects;
+
+import static com.techneapps.triviaapp.repo.StaticQuestionsRepo.getFirstQuestion;
 
 public class FirstQuizQuestionActivity extends AppCompatActivity {
     private ActivityFirstQuizQuestionBinding firstQuizQuestionBinding;
@@ -24,8 +25,12 @@ public class FirstQuizQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //data binding initialization
         firstQuizQuestionBinding = DataBindingUtil.setContentView(this, R.layout.activity_first_quiz_question);
+        firstQuizQuestionBinding.setQuestionAnswer(getFirstQuestion());
         initializeViews();
     }
+
+
+
     @Override
     protected void onResume() {
         super.onResume();

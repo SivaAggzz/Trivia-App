@@ -18,7 +18,7 @@ public class QuizHistoryRepository {
     //Data to provide to View
     private MutableLiveData<List<QuizHistory>> quizHistories;
     //Data source
-    private QuizHistoryDatabase quizHistoryDatabase;
+    private final QuizHistoryDatabase quizHistoryDatabase;
 
     public QuizHistoryRepository(QuizHistoryDatabase quizHistoryDatabase) {
         this.quizHistoryDatabase = quizHistoryDatabase;
@@ -51,47 +51,53 @@ public class QuizHistoryRepository {
                 .subscribe(quizHistoryMutableLiveData::setValue));
         return quizHistoryMutableLiveData;
     }
-    //method to delete all saved QuizHistory from Room database by using RXJava
-    public void clearQuizHistories() {
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(Observable.fromCallable(() -> {
-            quizHistoryDatabase.clearAllTables();
-            return true;
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((result) -> {
-                }));
-    }
+// --Commented out by Inspection START (14/03/20, 1:37 AM):
+//    //method to delete all saved QuizHistory from Room database by using RXJava
+//    public void clearQuizHistories() {
+//        CompositeDisposable compositeDisposable = new CompositeDisposable();
+//        compositeDisposable.add(Observable.fromCallable(() -> {
+//            quizHistoryDatabase.clearAllTables();
+//            return true;
+//        })
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe((result) -> {
+//                }));
+//    }
+// --Commented out by Inspection STOP (14/03/20, 1:37 AM)
 
-    //method to delete a saved QuizHistory from Room database by using RXJava
-    public void deleteQuizHistory(QuizHistory quizHistory) {
+// --Commented out by Inspection START (14/03/20, 1:37 AM):
+//    //method to delete a saved QuizHistory from Room database by using RXJava
+//    public void deleteQuizHistory(QuizHistory quizHistory) {
+//
+//        CompositeDisposable compositeDisposable = new CompositeDisposable();
+//        compositeDisposable.add(Observable.fromCallable(() -> {
+//            quizHistoryDatabase.getQuizHistoryDao().deleteQuizHistory(quizHistory);
+//            return true;
+//        })
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe((result) -> {
+//                }));
+//    }
+// --Commented out by Inspection STOP (14/03/20, 1:37 AM)
 
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(Observable.fromCallable(() -> {
-            quizHistoryDatabase.getQuizHistoryDao().deleteQuizHistory(quizHistory);
-            return true;
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((result) -> {
-                }));
-    }
-
-    //method to update QuizHistory to Room database by using RXJava
-    public void updateQuizHistory(QuizHistory quizHistory) {
-
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(Observable.fromCallable(() -> {
-            quizHistoryDatabase.getQuizHistoryDao().updateQuizHistory(quizHistory);
-            return true;
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((result) -> {
-
-                }));
-    }
+// --Commented out by Inspection START (14/03/20, 1:37 AM):
+//    //method to update QuizHistory to Room database by using RXJava
+//    public void updateQuizHistory(QuizHistory quizHistory) {
+//
+//        CompositeDisposable compositeDisposable = new CompositeDisposable();
+//        compositeDisposable.add(Observable.fromCallable(() -> {
+//            quizHistoryDatabase.getQuizHistoryDao().updateQuizHistory(quizHistory);
+//            return true;
+//        })
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe((result) -> {
+//
+//                }));
+//    }
+// --Commented out by Inspection STOP (14/03/20, 1:37 AM)
 
     //method to add QuizHistory to Room database by using RXJava
     public void addQuizHistory(QuizHistory quizHistory, OnOperationDoneCallback onOperationDoneCallback) {

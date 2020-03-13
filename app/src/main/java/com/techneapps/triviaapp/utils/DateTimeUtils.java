@@ -1,13 +1,12 @@
 package com.techneapps.triviaapp.utils;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class DateTimeUtils {
+class DateTimeUtils {
     //convert the system generated timestamp to human readable
     static String getDateTimeFromMillis(long milliseconds){
-        String finalParsedDate="";
+        String finalParsedDate;
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd", Locale.getDefault());
         finalParsedDate= dateFormatter.format(milliseconds);

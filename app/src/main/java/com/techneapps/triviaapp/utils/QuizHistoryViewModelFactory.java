@@ -12,7 +12,7 @@ public class QuizHistoryViewModelFactory extends ViewModelProvider.NewInstanceFa
      * custom ViewModelFactory for our QuizHistoryViewModel with custom parameters
      * such as QuizHistoryDatabase
      */
-    private QuizHistoryDatabase quizHistoryDatabase;
+    private final QuizHistoryDatabase quizHistoryDatabase;
 
     public QuizHistoryViewModelFactory(QuizHistoryDatabase quizHistoryDatabase) {
         this.quizHistoryDatabase = quizHistoryDatabase;

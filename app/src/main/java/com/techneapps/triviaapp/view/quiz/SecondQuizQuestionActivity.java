@@ -3,40 +3,37 @@ package com.techneapps.triviaapp.view.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.techneapps.triviaapp.R;
 import com.techneapps.triviaapp.database.QuizHistoryDatabase;
 import com.techneapps.triviaapp.database.models.QuizHistory;
 import com.techneapps.triviaapp.databinding.ActivitySecondQuizQuestionBinding;
-import com.techneapps.triviaapp.utils.OnOperationDoneCallback;
 import com.techneapps.triviaapp.utils.QuizHistoryViewModelFactory;
 import com.techneapps.triviaapp.viewmodel.QuizHistoryViewModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
+
+import static com.techneapps.triviaapp.repo.StaticQuestionsRepo.getSecondQuestion;
 
 public class SecondQuizQuestionActivity extends AppCompatActivity {
     private ActivitySecondQuizQuestionBinding secondQuizQuestionBinding;
     private QuizHistoryViewModel quizHistoryViewModel;
-    private QuizHistoryDatabase quizHistoryDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //data binding initialization
         secondQuizQuestionBinding = DataBindingUtil.setContentView(this, R.layout.activity_second_quiz_question);
+        secondQuizQuestionBinding.setQuestionAnswer(getSecondQuestion());
         initializeViewModel();
         initializeViews();
     }
@@ -48,8 +45,8 @@ public class SecondQuizQuestionActivity extends AppCompatActivity {
 
     private void initializeViewModel() {
         //quiz History Database initialization
-        quizHistoryDatabase = Room.databaseBuilder(this, QuizHistoryDatabase.class, "quiz_history.db").build();
-        quizHistoryViewModel = ViewModelProviders.of(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
+        QuizHistoryDatabase quizHistoryDatabase = Room.databaseBuilder(this, QuizHistoryDatabase.class, "quiz_history.db").build();
+        quizHistoryViewModel = new ViewModelProvider(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
                 .get(QuizHistoryViewModel.class);
     }
 

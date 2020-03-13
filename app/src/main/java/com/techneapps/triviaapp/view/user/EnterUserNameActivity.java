@@ -2,20 +2,14 @@ package com.techneapps.triviaapp.view.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.room.util.StringUtil;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 
 import com.techneapps.triviaapp.R;
 import com.techneapps.triviaapp.databinding.ActivityEnterUserNameBinding;
@@ -72,7 +66,7 @@ public class EnterUserNameActivity extends AppCompatActivity {
     }
 
 
-    private TextWatcher userNameTextWatcher = new TextWatcher() {
+    private final TextWatcher userNameTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

@@ -33,8 +33,10 @@ public interface QuizHistoryDao {
     QuizHistory getQuizHistoryById(long id);
 
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertMultipleQuizHistory(List<QuizHistory> quizHistories);
+// --Commented out by Inspection START (14/03/20, 1:11 AM):
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    void insertMultipleQuizHistory(List<QuizHistory> quizHistories);
+// --Commented out by Inspection STOP (14/03/20, 1:11 AM)
 
 
 }

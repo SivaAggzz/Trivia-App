@@ -1,13 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.techneapps.triviaapp.view.user.EnterUserNameViewModel" />
-    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +15,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sourcesanspro_bold"
-                android:text="Personal Details"
+                android:text="@string/personal_details"
                 android:textColor="@color/md_grey_700"
                 android:textSize="28sp" />
 
@@ -36,7 +28,9 @@
             android:layout_height="2sp"
             android:layout_below="@+id/questionNo"
             android:id="@+id/dottedLine"
-            android:src="@drawable/dotted_line"/>
+            android:src="@drawable/dotted_line"
+            android:contentDescription="@string/divider"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:layout_below="@+id/dottedLine"
@@ -45,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
             android:fontFamily="@font/sourcesanspro_bold"
-            android:text="What is your name?"
+            android:text="@string/what_is_your_name"
             android:textColor="@color/md_white_1000"
             android:textSize="24sp" />
 
@@ -55,10 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
             android:background="@drawable/radio_button_bg"
-            android:drawableEnd="@drawable/ic_edit_black_24dp"
+            android:drawableEnd="@drawable/ic_edit"
             android:drawablePadding="20sp"
             android:fontFamily="@font/sourcesanspro_regular"
-            android:hint="Your name"
+            android:hint="@string/your_name"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
@@ -89,7 +83,7 @@
             android:onClick="goToNextPage"
             android:paddingStart="30sp"
             android:paddingEnd="30sp"
-            android:text="Next"
+            android:text="@string/next"
             android:textAllCaps="false" />
 
     </RelativeLayout>

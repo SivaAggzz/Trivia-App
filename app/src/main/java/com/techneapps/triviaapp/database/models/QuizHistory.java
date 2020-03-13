@@ -8,10 +8,6 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.bumptech.glide.annotation.Excludes;
-
-import java.io.Serializable;
-
 @Entity(tableName = "quiz_history")
 public class QuizHistory implements Parcelable {
     @PrimaryKey(autoGenerate = true)

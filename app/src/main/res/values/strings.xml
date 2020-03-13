@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Trivia App</string>
+    <string name="divider">divider</string>
+    <string name="logo">Logo</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="your_name">Your name</string>
+    <string name="next">Next</string>
+    <string name="question_1">Question 1</string>
+    <string name="_2">/2</string>
+    <string name="question_2">Question 2</string>
+    <string name="here_are_the_answers_selected">Here are the answers selected:</string>
+    <string name="finish">Finish</string>
+    <string name="history">History</string>
+    <string name="t">T</string>
+    <string name="rivia_app">rivia App</string>
+    <string name="name">Name</string>
 </resources>

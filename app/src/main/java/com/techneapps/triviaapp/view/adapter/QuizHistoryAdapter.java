@@ -16,8 +16,8 @@ import com.techneapps.triviaapp.view.adapter.viewholder.QuizHistoryAdapterViewHo
 import java.util.List;
 
 public class QuizHistoryAdapter extends RecyclerView.Adapter<QuizHistoryAdapterViewHolder> {
-    private Context context;
-    private List<QuizHistory> quizHistories;
+    private final Context context;
+    private final List<QuizHistory> quizHistories;
 
     public QuizHistoryAdapter(Context context, List<QuizHistory> quizHistories) {
         this.context = context;

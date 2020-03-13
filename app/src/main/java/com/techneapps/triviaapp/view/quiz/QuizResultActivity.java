@@ -2,19 +2,16 @@ package com.techneapps.triviaapp.view.quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.techneapps.triviaapp.R;
 import com.techneapps.triviaapp.database.QuizHistoryDatabase;
-import com.techneapps.triviaapp.database.models.QuizHistory;
 import com.techneapps.triviaapp.databinding.ActivityQuizResultBinding;
 import com.techneapps.triviaapp.utils.QuizHistoryViewModelFactory;
 import com.techneapps.triviaapp.view.user.EnterUserNameActivity;
@@ -26,7 +23,6 @@ public class QuizResultActivity extends AppCompatActivity {
 
     private ActivityQuizResultBinding quizResultBinding;
     private QuizHistoryViewModel quizHistoryViewModel;
-    private QuizHistoryDatabase quizHistoryDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class QuizResultActivity extends AppCompatActivity {
         //data binding initialization
         quizResultBinding= DataBindingUtil.setContentView(this, R.layout.activity_quiz_result);
         //set toolbar's custom title
-        getSupportActionBar().setTitle("Summary");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Summary");
         initializeViewModel();
         initializeResult();
     }
@@ -45,8 +41,8 @@ public class QuizResultActivity extends AppCompatActivity {
     }
     private void initializeViewModel() {
         //quiz History Database initialization
-        quizHistoryDatabase = Room.databaseBuilder(this, QuizHistoryDatabase.class, "quiz_history.db").build();
-        quizHistoryViewModel = ViewModelProviders.of(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
+        QuizHistoryDatabase quizHistoryDatabase = Room.databaseBuilder(this, QuizHistoryDatabase.class, "quiz_history.db").build();
+        quizHistoryViewModel = new ViewModelProvider(this, new QuizHistoryViewModelFactory(quizHistoryDatabase))
                 .get(QuizHistoryViewModel.class);
     }
 

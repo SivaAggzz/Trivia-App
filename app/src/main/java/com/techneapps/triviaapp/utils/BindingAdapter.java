@@ -1,5 +1,6 @@
 package com.techneapps.triviaapp.utils;
 
+import android.annotation.SuppressLint;
 import android.widget.TextView;
 
 import static com.techneapps.triviaapp.utils.DateTimeUtils.getDateTimeFromMillis;
@@ -10,6 +11,7 @@ public class BindingAdapter {
      */
 
     //convert the system generated timestamp to human readable and set it to the concerned textview
+    @SuppressLint("SetTextI18n")
     @androidx.databinding.BindingAdapter(value = "setDateTime")
     public static void setDateTime(TextView textView,long dateTimeInLong){
         textView.setText(" : "+getDateTimeFromMillis(dateTimeInLong));
