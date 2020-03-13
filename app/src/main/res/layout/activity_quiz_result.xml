@@ -1,0 +1,124 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quizHistory"
+            type="com.techneapps.triviaapp.database.models.QuizHistory" />
+    </data>
+
+    <RelativeLayout
+        android:padding="26sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".view.user.EnterUserNameActivity">
+
+            <TextView
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:id="@+id/quizResultHelloMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Hello “` + quizHistory.userName+ `”,`}"
+                android:textColor="@color/md_white_1000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:id="@+id/quizResultSecondTitle"
+                android:layout_marginBottom="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Here are the answers selected:"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/quizResultFirstQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@{quizHistory.quizQuestion1}"
+                android:textColor="@color/md_grey_300"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:background="@drawable/item_bg"
+                android:layout_marginBottom="20sp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
+                android:id="@+id/quizResultFirstAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Answer : “` + quizHistory.quizAnswered1+ `”`}"
+                android:textColor="@color/md_grey_500"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/quizResultSecondQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@{quizHistory.quizQuestion2}"
+                android:textColor="@color/md_grey_300"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:background="@drawable/item_bg"
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="20sp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:id="@+id/quizResultSecondAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Answers : “` + quizHistory.quizAnswered2+ `”`}"
+                android:textColor="@color/md_grey_500"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_marginBottom="10sp"
+                android:textAllCaps="false"
+                android:id="@+id/nextBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_finish_rect_background_state"
+                android:enabled="true"
+                android:onClick="restartGame"
+                android:text="Finish" />
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/historyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_history_rect_background_state"
+                android:onClick="showHistory"
+                android:text="History" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

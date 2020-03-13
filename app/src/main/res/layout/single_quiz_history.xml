@@ -1,0 +1,132 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quizHistory"
+            type="com.techneapps.triviaapp.database.models.QuizHistory" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        app:cardBackgroundColor="@color/card_dark_bg_color"
+        app:cardElevation="10sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/quizGameId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:text="@{`GAME ` + quizHistory.id}"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/quizTimeStamp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/quizGameId"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="18sp"
+                    app:setDateTime="@{quizHistory.timeStamp}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/quizUserNameCaption"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/quizGameId"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:text="Name"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/quizUserNameValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/quizGameId"
+                    android:layout_toEndOf="@+id/quizUserNameCaption"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:text="@{` : `+quizHistory.userName}"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/quizFirstQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizUserNameCaption"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@{quizHistory.quizQuestion1}"
+                android:textColor="@color/md_white_1000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/quizFirstAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizFirstQuestion"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@{`Answer: “` + quizHistory.quizAnswered1+ `”`}"
+                android:textColor="@color/whiteTwo"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/quizSecondQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizFirstAnswer"
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@{quizHistory.quizQuestion2}"
+                android:textColor="@color/md_white_1000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/quizSecondAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizSecondQuestion"
+                android:layout_marginBottom="10sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@{`Answers: “` + quizHistory.quizAnswered2+ `”`}"
+                android:textColor="@color/whiteTwo"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

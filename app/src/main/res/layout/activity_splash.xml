@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.splash.SplashActivity">
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32sp"
+            android:layout_height="32sp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/clearBlue"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:includeFontPadding="false"
+            android:layout_width="32sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:gravity="center"
+            android:text="T"
+            android:textColor="@color/md_white_1000"
+            android:textSize="34sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:text="rivia App"
+            android:textAllCaps="true"
+            android:textColor="@color/md_white_1000"
+            android:textSize="34sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>
